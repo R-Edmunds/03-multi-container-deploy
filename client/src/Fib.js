@@ -5,7 +5,7 @@ import axios from "axios";
 class Fib extends Component {
   state = {
     seenIndexes: [],
-    values: {},
+    values: { asdf: "agdfg" },
     index: ""
   };
 
@@ -42,21 +42,13 @@ class Fib extends Component {
     const entries = [];
     const values = this.state.values;
 
-    Object.entries(values).forEach(([key, value]) => {
+    for (let key of values) {
       entries.push(
         <div key={key}>
-          For index {key} I calculated {value}
+          For index {key} I calculated {values[key].number}
         </div>
       );
-    });
-
-    // for (let key of values) {
-    //   entries.push(
-    //     <div key={key}>
-    //       For index {key} I calculated {values[key]}
-    //     </div>
-    //   );
-    // }
+    }
 
     return entries;
   };
