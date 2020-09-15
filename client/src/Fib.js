@@ -5,7 +5,7 @@ import axios from "axios";
 class Fib extends Component {
   state = {
     seenIndexes: [],
-    values: { asdf: "agdfg" },
+    values: {},
     index: ""
   };
 
@@ -42,7 +42,7 @@ class Fib extends Component {
     const entries = [];
     const values = this.state.values;
 
-    for (let key of values) {
+    for (let key in values) {
       entries.push(
         <div key={key}>
           For index {key} I calculated {values[key].number}
