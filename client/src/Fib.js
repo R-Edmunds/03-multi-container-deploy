@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import axios from "axios";
 
 class Fib extends Component {
@@ -35,13 +35,7 @@ class Fib extends Component {
   renderSeenIndexes = () => {
     const indexes = this.state.seenIndexes;
 
-    return (
-      <ul>
-        {indexes.map((i) => (
-          <li>{i}</li>
-        ))}
-      </ul>
-    );
+    return indexes.map((i) => <li>{i}</li>);
   };
 
   renderCalculatedValues = () => {
@@ -77,7 +71,8 @@ class Fib extends Component {
         </form>
 
         <h3>Indexes I have seen: -</h3>
-        {this.renderSeenIndexes()}
+
+        <ul>{this.renderSeenIndexes()}</ul>
 
         <h3>Calculated values: -</h3>
         {this.renderCalculatedValues()}
