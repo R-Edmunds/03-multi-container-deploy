@@ -10,8 +10,8 @@ class Fib extends Component {
   };
 
   componentDidMount = () => {
-    this.fetchValues();
-    this.fetchIndexes();
+    // this.fetchValues();
+    // this.fetchIndexes();
   };
 
   handleSubmit = async (e) => {
