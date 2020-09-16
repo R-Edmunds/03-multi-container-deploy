@@ -14,9 +14,9 @@ const fib = (idx) => {
   return fib(idx - 1) + fib(idx - 2);
 };
 
-sub.on("message", (channel, message) => {
-  const fibResult = fib(parseInt(message));
-  sleep(100).then(() => redisClient.hset("values", message, fibResult));
+sub.on("message", async (channel, message) => {
+  const fibResult = await fib(parseInt(message));
+  redisClient.hset("values", message, fibResult);
 });
 
 sub.subscribe("insert");
