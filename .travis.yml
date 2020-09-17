@@ -5,7 +5,7 @@ before_install:
   - docker build --tag roblobob/03-multi-container-deploy-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run --environment CI=true roblobob/03-multi-container-deploy-test npm run test
+  - docker run --env CI=true roblobob/03-multi-container-deploy-test npm run test
 
 after_success:
   - docker build --tag roblobob/03-multi-container-deploy-client ./client
