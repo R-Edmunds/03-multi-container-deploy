@@ -1,0 +1,20 @@
+services:
+  - docker
+
+before_install:
+  - docker build --tag roblobob/03-multi-container-deploy-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true roblobob/03-multi-container-deploy npm run test
+
+after_success:
+  - docker build --tag roblobob/03-multi-container-deploy-client ./client
+  - docker build --tag roblobob/03-multi-container-deploy-router ./nginx
+  - docker build --tag roblobob/03-multi-container-deploy-server ./server
+  - docker build --tag roblobob/03-multi-container-deploy-worker ./worker
+  # login to docker cli and push images
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push roblobob/03-multi-container-deploy-client
+  - docker push roblobob/03-multi-container-deploy-router
+  - docker push roblobob/03-multi-container-deploy-server
+  - docker push roblobob/03-multi-container-deploy-worker
