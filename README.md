@@ -9,7 +9,10 @@ App is a grossly over-engineered Fibonacci calculator comprising of: -
 - express server api
 - postres database
 - redis store
-- nginx router
+- worker process. listens for redis changes, performs Fibonacci calculation, overwrites record
+- nginx router (reverse proxy. splits traffic between client and api)
+
+![](diagram.png)
 
 ## Flow
 
