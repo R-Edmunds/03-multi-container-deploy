@@ -25,6 +25,7 @@ deploy:
   app: 03-multi-container-deploy
   env: 03MultiContainerDeploy-env
   bucket_name: elasticbeanstalk-eu-west-2-380631270758
+  bucket_path: 03-multi-container-deploy
   on:
     branch: master
   access_key_id: $AWS_ACCESS_ID
