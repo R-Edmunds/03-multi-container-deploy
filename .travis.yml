@@ -20,6 +20,7 @@ after_success:
   - docker push roblobob/03-multi-container-deploy-worker
 
 deploy:
+  edge: true
   provider: elasticbeanstalk
   region: eu-west-2
   app: 03-multi-container-deploy
